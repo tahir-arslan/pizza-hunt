@@ -71,3 +71,8 @@ with SQL, we joined two tables together to resolve a problem. with MongoDB, we `
 
 `getters` transforms data by default everytime it's queried. typically a special type of cuntion that takes stored data and modifies/formats it upon return (kind of like middleware for your data)
     in mongoose, just ned to add the `get` key to field we are looking to use (ex. in this case `createdAt` to modify date)
+
+18.3
+`accumulator` used inside `.reduce( )` by continually adding to a value within scope of method. by default, in `.reduce( )` then divides by length of entire array. this method is great for calculating value based off an accumulation of values in an array
+
+using `{ $push }` operator allows for duplicates. to avoid this, can use the code `{ $addToSet }`
