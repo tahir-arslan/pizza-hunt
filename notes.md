@@ -76,3 +76,15 @@ with SQL, we joined two tables together to resolve a problem. with MongoDB, we `
 `accumulator` used inside `.reduce( )` by continually adding to a value within scope of method. by default, in `.reduce( )` then divides by length of entire array. this method is great for calculating value based off an accumulation of values in an array
 
 using `{ $push }` operator allows for duplicates. to avoid this, can use the code `{ $addToSet }`
+
+18.4
+from module 18.4.3:
+    If you were to provide a custom error message for the `required` option here, you wouldn't receive it if you provide a size that isn't listed in the `enum` option. If you want to provide a custom message for enumerable values, you need to look into implementing the `validate` option Mongoose lets you use, where you can create a custom function to test the values, just like you did with Inquirer!
+
+remember:
+heroku has issues with cross-branch publishing so it is vital to merge everything to local main branch and then push to heroku from main.
+    otherwise can execute: `git push heroku <your-local-branch>:main`
+
+with MongoDB, need a way to host the db on heroku. With MySQL, we used JawsDB. With Heroku, we will use MongoDB Atlas.
+
+then need to code in connection to DB

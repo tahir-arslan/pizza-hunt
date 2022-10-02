@@ -5,10 +5,18 @@ const dateFormat = require('../utils/dateFormat');
 const PizzaSchema = new Schema(
         {
         pizzaName: {
-            type: String
+            type: String,
+            // since MongoDB doesn't care about rules at all, we need to use Mongoose to
+            // implement these rules
+            required: true,
+            trim: true
         },
         createdBy: {
-            type: String
+            type: String,
+            // can also do the following for a custom message:
+            // required: 'You need to provide a pizza name!',
+            required: true,
+            trim: true
         },
         createdAt: {
             type: Date,
@@ -17,6 +25,8 @@ const PizzaSchema = new Schema(
         },
         size: {
             type: String,
+            required: true,
+            enum: ['Personal', 'Small', 'Medium', 'Large', 'Extra Large'],
             default: 'Large'
         },
         toppings: [],
