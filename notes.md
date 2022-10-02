@@ -60,3 +60,14 @@ when coding connection to Mongoose in `server.js` we did not define db but still
                                         }
 
 after starting server and posting new data, will see a `__v` field. this is added by Mongoose for it's own internal version tracking of a docment, and offers some advanced use cases for developers
+
+18.2
+`virtuals` allow you to add virtual properties to a document that aren't stored in the DB. normally are computed values that get evaluated when you try to access their properties
+    in this lesson, we want to get a count of how many comments a pizza has. to maintain this count as persistent data in db, have to update it anytime someone adds/deletes a comment. but want to avoid helper function as it will then reduce complexity of controllers. therefore can use `virtuals`. 
+        allow us to add more info to db respons so we don't have to add it manually with helper before responding to API request
+    don't forget to tell schema that it can use virtuals with `toJSON` property in schema options
+
+with SQL, we joined two tables together to resolve a problem. with MongoDB, we `populate` field with `.populate( )`
+
+`getters` transforms data by default everytime it's queried. typically a special type of cuntion that takes stored data and modifies/formats it upon return (kind of like middleware for your data)
+    in mongoose, just ned to add the `get` key to field we are looking to use (ex. in this case `createdAt` to modify date)
